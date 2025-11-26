@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Biblioteca UDB</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1> Biblioteca Universidad Don Bosco</h1>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="buscar.html">Buscar</a>
+                <a href="../login.jsp">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Catálogo en Línea</h2>
+            <p>Busque entre miles de libros, revistas, tesis y materiales educativos</p>
+            
+            <div class="busqueda-simple">
+                <form action="../BuscarServlet" method="GET">
+                    <input type="text" name="termino" placeholder="Buscar por título, autor, tema...">
+                    <button type="submit"> Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="categorias">
+            <h3>Explorar por Categorías</h3>
+            <div class="categorias-grid">
+                <div class="categoria">
+                    <h4> Libros</h4>
+                    <p>Colección completa de libros académicos</p>
+                </div>
+                <div class="categoria">
+                    <h4> Revistas</h4>
+                    <p>Publicaciones periódicas especializadas</p>
+                </div>
+                <div class="categoria">
+                    <h4> Material Multimedia</h4>
+                    <p>CDs, DVDs y recursos digitales</p>
+                </div>
+                <div class="categoria">
+                    <h4> Tesis</h4>
+                    <p>Trabajos de graduación e investigación</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Biblioteca Universidad Don Bosco. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

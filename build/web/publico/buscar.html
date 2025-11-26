@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda Avanzada - Biblioteca UDB</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .busqueda-avanzada {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .filtros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filtro-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .filtro-group select,
+        .filtro-group input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+        }
+        
+        .resultados {
+            margin-top: 2rem;
+        }
+        
+        .ejemplar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            border-left: 4px solid #3498db;
+        }
+        
+        .ejemplar-card h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ejemplar-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item {
+            color: #7f8c8d;
+        }
+        
+        .disponible {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .no-disponible {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1> Biblioteca Universidad Don Bosco</h1>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="buscar.html">Búsqueda Avanzada</a>
+                <a href="../login.jsp">Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="busqueda-avanzada">
+            <h2> Búsqueda Avanzada</h2>
+            
+            <form action="../BuscarServlet" method="GET">
+                <div class="filtros">
+                    <div class="filtro-group">
+                        <label for="termino">Palabra clave:</label>
+                        <input type="text" id="termino" name="termino" placeholder="Título, autor, tema...">
+                    </div>
+                    
+                    <div class="filtro-group">
+                        <label for="tipo">Tipo de material:</label>
+                        <select id="tipo" name="tipo">
+                            <option value="">Todos los tipos</option>
+                            <option value="LIBRO">Libros</option>
+                            <option value="REVISTA">Revistas</option>
+                            <option value="CD">Material Multimedia</option>
+                            <option value="TESIS">Tesis</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filtro-group">
+                        <label for="ubicacion">Ubicación:</label>
+                        <input type="text" id="ubicacion" name="ubicacion" placeholder="Estante, sección...">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-login" style="width: auto; padding: 10px 20px;">
+                     Realizar Búsqueda
+                </button>
+            </form>
+        </div>
+
+        <div class="resultados">
+            <h3>Resultados de Búsqueda</h3>
+            <p id="mensaje-resultados">Realice una búsqueda para ver los resultados...</p>
+            
+            <!-- Ejemplo de cómo se verá un resultado -->
+            <div class="ejemplar-card" style="display: none;" id="ejemplo-resultado">
+                <h4>Título del Ejemplar</h4>
+                <div class="ejemplar-info">
+                    <div class="info-item"><strong>Autor:</strong> Nombre del autor</div>
+                    <div class="info-item"><strong>Tipo:</strong> Libro</div>
+                    <div class="info-item"><strong>Ubicación:</strong> Estante A-15</div>
+                    <div class="info-item"><strong>Disponibilidad:</strong> <span class="disponible">3 disponibles</span></div>
+                </div>
+                <div class="info-item"><strong>Año:</strong> 2024</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Biblioteca Universidad Don Bosco. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Este es un ejemplo - luego se conectará con Java
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('mensaje-resultados').textContent = 'Buscando en la base de datos...';
+            // Aquí luego se hará la llamada al Servlet
+        });
+    </script>
+</body>
+</html>
