@@ -1,0 +1,16 @@
+SMAP
+configuracion_jsp.java
+JSP
+*S JSP
+*F
++ 0 configuracion.jsp
+admin/configuracion.jsp
+*L
+5,2:44
+9,6:48
+14,156:54
+170:210,3
+171,234:213
+405:447,3
+406,36:450
+*E
